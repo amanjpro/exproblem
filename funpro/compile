@@ -1,0 +1,9 @@
+#! /bin/bash
+
+mkdir stash
+rm ./*.{hi,o}
+ghc -c Simple.hs
+mv Simple.hs stash/
+ghc -c Eval.hs
+mv stash/Simple.hs .
+rmdir stash

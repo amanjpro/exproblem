@@ -1,0 +1,10 @@
+#! /bin/bash
+
+mkdir stash
+rm -f src/*.class
+mv src/*.java stash/
+mv stash/Mul.java src/
+javac -d src stash/*.java
+javac -cp src -d src src/Mul.java
+mv stash/*.java src/
+rmdir stash

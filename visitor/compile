@@ -1,0 +1,12 @@
+#! /bin/bash
+
+mkdir -p stash
+rm -rf src/*.class
+javac -cp src -d src src/Visitor.java
+mv src/{Add,Exp,Lit,Visitor}.java stash/
+javac -cp src -d src src/StringifyVisitor.java
+mv src/StringifyVisitor.java stash/
+javac -cp src -d src src/EvalVisitor.java
+cp -R stash stashtmp
+mv stash/*.java src/
+rmdir stash

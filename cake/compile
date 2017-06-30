@@ -1,0 +1,11 @@
+#! /bin/bash
+
+mkdir -p stash
+rm -f src/*.class
+scalac -d src src/Simple.scala
+mv src/Simple.scala stash/
+scalac -cp src -d src src/Rich.scala
+mv src/Rich.scala stash/
+scalac -cp src -d src src/Eval.scala
+mv stash/*.scala src/
+rmdir stash
