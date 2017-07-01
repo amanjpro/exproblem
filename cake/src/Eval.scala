@@ -1,4 +1,4 @@
-trait Eval extends Base with BaseMul {
+trait Eval extends BaseMul {
   type exp <: Exp
 
   trait Exp extends super.Exp {
